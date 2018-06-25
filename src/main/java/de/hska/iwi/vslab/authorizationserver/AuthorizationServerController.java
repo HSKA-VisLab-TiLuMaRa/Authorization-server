@@ -23,4 +23,11 @@ public class AuthorizationServerController {
   public String secureAPI(){
     return "this is secure";
   }
+
+  @GetMapping( value = "oauth/token")
+  public String oauthToken(){
+    System.out.println("TEST");
+    return "this is secure";
+  }
+
 }

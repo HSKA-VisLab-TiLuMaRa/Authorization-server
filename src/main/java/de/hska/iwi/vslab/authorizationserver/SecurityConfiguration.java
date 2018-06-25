@@ -28,13 +28,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
       return super.userDetailsServiceBean();
     }
 
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-      auth.inMemoryAuthentication()
-        .withUser("barry").password("{noop}password").roles("USER")
-        .and()
-        .withUser("admin").password("{noop}password").roles("USER", "ADMIN");
-    }
+    // @Override
+    // public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    //   auth.inMemoryAuthentication()
+    //     .withUser("barry").password("{noop}password").roles("USER")
+    //     .and()
+    //     .withUser("admin").password("{noop}password").roles("USER", "ADMIN");
+    // }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
