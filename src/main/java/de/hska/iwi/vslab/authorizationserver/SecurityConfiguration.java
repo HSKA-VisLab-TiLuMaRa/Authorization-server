@@ -22,11 +22,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    @Override
-    @Bean
-    public UserDetailsService userDetailsServiceBean() throws Exception {
-      return super.userDetailsServiceBean();
-    }
+    // @Override
+    // @Bean
+    // public UserDetailsService userDetailsServiceBean() throws Exception {
+    //   return super.userDetailsServiceBean();
+    // }
 
     // @Override
     // public void configure(AuthenticationManagerBuilder auth) throws Exception {
