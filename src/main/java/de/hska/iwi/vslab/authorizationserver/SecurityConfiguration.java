@@ -38,19 +38,27 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+      http.httpBasic()
+        .and()
+        .authorizeRequests()
+        .antMatchers("/auth/authorize", "/oauth/token").permitAll()
+        .anyRequest().authenticated();
+      http.csrf().disable();
+
       // http.httpBasic()
       //   .and()
-      //   .authorizeRequests()
-      //   .antMatchers("/auth/authorize", "/oauth/token").permitAll()
-      //   .anyRequest().authenticated();
-      // http.csrf().disable();
+      //   .formLogin().permitAll()
+      //   .and()
+      //   .requestMatchers().antMatchers("/login", "/oauth/authorize", "/oauth/confirm_access")
+      //   .and()
+      //   .authorizeRequests().anyRequest().authenticated();
 
-        http.requestMatchers()
-          .antMatchers("/oauth/token", "/oauth/authorize", "/oauth/confirm_access")
-          .and()
-          .formLogin().loginPage("/login").permitAll().failureUrl("/login?error")
-          .and()
-          .authorizeRequests().anyRequest().authenticated();
+        // http.requestMatchers()
+        //   .antMatchers("/oauth/token", "/oauth/authorize", "/oauth/confirm_access")
+        //   .and()
+        //   .formLogin().loginPage("/login").permitAll().failureUrl("/login?error")
+        //   .and()
+        //   .authorizeRequests().anyRequest().authenticated();
     }
 
 // barry:password

@@ -1,0 +1,18 @@
+server:
+  port: 8099
+  context-path: /auth
+
+logging:
+  level:
+    root: DEBUG
+
+spring:
+  application:
+    name: oauth-service
+
+eureka:
+    instance:
+      preferIpAddress: true
+      leaseRenewalIntervalInSeconds: 5
+      metadataMap:
+        instanceId: "${spring.application.name}:${random.value}"
