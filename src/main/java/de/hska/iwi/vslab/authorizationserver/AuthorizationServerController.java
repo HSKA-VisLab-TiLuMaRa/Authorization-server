@@ -12,22 +12,30 @@ public class AuthorizationServerController {
   // public Principal userInfo(@AuthenticationPrincipal Principal user){
   //   return user;
   // }
+	
+	 @RequestMapping(value = "/user")
+	  public Principal userInfo(@AuthenticationPrincipal Principal user) {
+		 System.out.println("authorization server user info controller" + user.toString());
+
+	    return user;
+	  }
 
 
-  @GetMapping( value = "index")
-  public String index(){
-    return "this is open";
-  }
-
-  @GetMapping( value = "secureAPI")
-  public String secureAPI(){
-    return "this is secure";
-  }
-
-  @GetMapping( value = "oauth/token")
-  public String oauthToken(){
-    System.out.println("TEST");
-    return "this is secure";
-  }
+//
+//  @GetMapping( value = "index")
+//  public String index(){
+//    return "this is open";
+//  }
+//
+//  @GetMapping( value = "secureAPI")
+//  public String secureAPI(){
+//    return "this is secure";
+//  }
+//
+//  @GetMapping( value = "oauth/token")
+//  public String oauthToken(){
+//    System.out.println("TEST");
+//    return "this is secure";
+//  }
 
 }
