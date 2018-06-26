@@ -40,10 +40,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
       http.httpBasic()
         .and()
+        // .anonymous()
+        // .and()
         .authorizeRequests()
-        .antMatchers("/auth/authorize", "/oauth/token").permitAll()
+        .antMatchers("/oauth/authorize", "/oauth/token").permitAll()
         .anyRequest().authenticated();
-      http.csrf().disable();
+      // http.csrf().disable();
 
       // http.httpBasic()
       //   .and()
